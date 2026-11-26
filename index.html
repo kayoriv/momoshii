@@ -197,60 +197,21 @@
     <p class="small-note">te amo eternamente ♡</p>
   </main>
 
-  <aside class="music-player" aria-label="Player de música">
-    <div class="music-title">♫ nossa trilha sonora</div>
-    <div class="track-name" id="trackName">Música 1</div>
-    <div class="music-buttons">
-      <button type="button" id="previousBtn" aria-label="Música anterior">⏮</button>
-      <button type="button" id="playBtn">▶ tocar</button>
-      <button type="button" id="nextBtn" aria-label="Próxima música">⏭</button>
-    </div>
-    <audio id="audio" preload="none"></audio>
-  </aside>
+  
+<aside class="music-player">
+  <div class="music-title">pra voce moxinho ♡</div>
+  <iframe
+    style="border-radius:12px"
+    src="https://open.spotify.com/embed/track/2LcaMBOrydi34ne98bELgL?utm_source=generator"
+    width="100%"
+    height="152"
+    frameBorder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy">
+  </iframe>
+</aside>
 
   <script>
-    // Coloque os arquivos MP3 na mesma pasta deste HTML e altere os nomes aqui.
-    const playlist = [
-      { name: "Música 1", file: "musica1.mp3" },
-      { name: "Música 2", file: "musica2.mp3" },
-      { name: "Música 3", file: "musica3.mp3" }
-    ];
-
-    const audio = document.getElementById("audio");
-    const trackName = document.getElementById("trackName");
-    const playBtn = document.getElementById("playBtn");
-    let currentTrack = 0;
-
-    function loadTrack(index, autoplay = false) {
-      currentTrack = (index + playlist.length) % playlist.length;
-      audio.src = playlist[currentTrack].file;
-      trackName.textContent = playlist[currentTrack].name;
-      playBtn.textContent = "▶ tocar";
-      if (autoplay) {
-        audio.play().then(() => playBtn.textContent = "❚❚ pausar")
-          .catch(() => playBtn.textContent = "▶ tocar");
-      }
-    }
-
-    playBtn.addEventListener("click", () => {
-      if (audio.paused) {
-        if (!audio.src) loadTrack(currentTrack);
-        audio.play().then(() => playBtn.textContent = "❚❚ pausar")
-          .catch(() => {
-            playBtn.textContent = "▶ tocar";
-            trackName.textContent = "Confira se o arquivo MP3 está na pasta";
-          });
-      } else {
-        audio.pause();
-        playBtn.textContent = "▶ tocar";
-      }
-    });
-
-    document.getElementById("nextBtn").addEventListener("click", () => loadTrack(currentTrack + 1, true));
-    document.getElementById("previousBtn").addEventListener("click", () => loadTrack(currentTrack - 1, true));
-    audio.addEventListener("ended", () => loadTrack(currentTrack + 1, true));
-
-    loadTrack(0);
 
     // Chuvinha de corações 🩷
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
